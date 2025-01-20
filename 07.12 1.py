@@ -1,7 +1,7 @@
-def f(n,m):
+def labirint(n,m):
     if n==1 or m==1:
         return 1
     else:
-        return f(n-1,m)+f(n,m-1)
+        return labirint(n-1,m)+labirint(n,m-1)
 n,m=int(input()),int(input())
-print(f(n,m))
+print(labirint(n,m))
