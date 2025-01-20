@@ -1,26 +1,21 @@
-n=int(input('N:'))
-r=[]
-for i in range(n):
-    k=int(input())
-    r.append(k)
-#print(r)
-c=int(input('C:'))
-
-def F(num,g):
-    min = 10000
-    l=len(num)
-    if l<4:
-        return None
-
-    for i in range(n-3):
-        for j in range(i+1,n-2):
-            for p in range(j+1,n-1):
-                for q in range(p+1,n):
-                    v= num[i]+num[j]+num[p]+num[q]
-                    d=abs(v-g)
-                    if d<min:
-                        min=d
-                        numbers=[num[i],num[j],num[p],num[q]]
-    return numbers,sum(numbers)
-
-print(F(r,c))
+N=int(input('N:'))
+nums=[]
+for i in range(N):
+    j=int(input())
+    nums.append(j)
+C=int(input("C:"))
+def find_closest_sum(nums, target):
+    closest_combination = None
+    closest_sum = float('inf')
+    n = len(nums)
+    for i in range(n):
+        for j in range(i + 1, n):
+            for k in range(j + 1, n):
+                for l in range(k + 1, n):
+                    current_combination = (nums[i], nums[j], nums[k], nums[l])
+                    current_sum = sum(current_combination)
+                    if abs(current_sum - target) < abs(closest_sum - target):
+                        closest_sum = current_sum
+                        closest_combination = current_combination
+    return list(closest_combination), closest_sum
+print(find_closest_sum(nums,C))

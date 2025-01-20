@@ -1,7 +1,7 @@
-def F(n,m):
+def f(n,m):
     if n==1 or m==1:
         return 1
     else:
-        return F(n-1,m)+F(n,m-1)
+        return f(n-1,m)+f(n,m-1)
 n,m=int(input()),int(input())
-print(F(n,m))
+print(f(n,m))
